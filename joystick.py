@@ -39,3 +39,6 @@ class Joystick:
         print(f"number of hats -> {self.numhats}")
         print("~~~~~~~~~~~~~~~~~~~~~~~~")
 
+
+if __name__ == "__main__":
+    pass
