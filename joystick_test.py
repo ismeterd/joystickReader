@@ -10,9 +10,14 @@ class InputTest:
 
     def initialize(self):
         if self.joycount == 0:
-            print("No joysticks were detected!")
+            print("\nNo joysticks were detected!")
             # to be exited the program with code 1.
         else:
-            print(f"Detected {self.joycount} joystick/joysticks")
+            print(f"\nDetected {self.joycount} joystick/joysticks")
             for i in range(self.joycount):
                 self.joys.append(Joystick(i))
+
+
+if __name__ == "__main__":
+    program = InputTest()
+    program.initialize()
