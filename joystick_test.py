@@ -20,6 +20,10 @@ class InputTest:
             for i in range(self.joycount):
                 self.joys.append(Joystick(i))
 
+    def run(self):
+        for event in [pygame.event.wait(), ] + pygame.event.get():
+            print(event)
+
     def quit(self, status=0):
         print("Program is ending...")
         pygame.quit()
