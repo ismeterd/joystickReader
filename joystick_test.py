@@ -9,6 +9,7 @@ class InputTest:
         pygame.init()
         self.joycount = pygame.joystick.get_count()
         self.joys = []
+        self.event_joy = 0
 
     def initialize(self):
         if self.joycount == 0:
@@ -29,7 +30,7 @@ class InputTest:
                 if event_name == "JoyDeviceAdded" or event_name == "AudioDeviceAdded":
                     pass
                 else:
-                    joystick_name = self.joys[event_joy].name
+                    joystick_name = self.joys[self.event_joy].name
                     print(f"Joystick Name: {joystick_name}")
 
                 # print(f"{event} -> {event_name} -> joy: {event_joy}")
@@ -53,9 +54,13 @@ class InputTest:
                         event_buton = event.__dict__.get('button')
                         self.joys[event_joy].button[event_buton] = 0
 
-                    print(f"axis: {self.joys[event_joy].axis}")
-                    print(f"hats: {self.joys[event_joy].hat}")
-                    print(f"buttons: {self.joys[event_joy].button}")
+                    self.view_joystick_states(event_joy)
+
+    def view_joystick_states(self, id):
+        print(f"axis: {self.joys[id].axis}")
+        print(f"hats: {self.joys[id].hat}")
+        print(f"buttons: {self.joys[id].button}")
+        print("----------------------------------------------")
 
     def quit(self, status=0):
         print("Program is ending...")
