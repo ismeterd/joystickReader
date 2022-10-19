@@ -11,7 +11,6 @@ class InputTest:
         self.joys = []
         self.event_joy = 0
 
-    def initialize(self):
         if self.joycount == 0:
             print("\nNo joysticks were detected!")
             # to be exited the program with code 1.
@@ -70,5 +69,4 @@ class InputTest:
 
 if __name__ == "__main__":
     program = InputTest()
-    program.initialize()
     program.run()
